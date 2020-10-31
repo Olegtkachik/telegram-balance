@@ -12,16 +12,7 @@ const accessToken = process.env.FACEBOOK_TOKEN;
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
 const account = new AdAccount('act_1230795577093003');
-account
-  .read([AdAccount.Fields.name, AdAccount.Fields.age,AdAccount.Fields.balance,AdAccount.Fields.currency])
-  .then((account) => {
-    
-      balance = "Ваш баланс: " + (account.balance/100);
-      // sendTelegramMessage(balance);
-  })
-  .catch((error) => {
-        console.log(error)
-});
+
 
 
 
@@ -48,8 +39,21 @@ bot.on('text', async (ctx) => {
  
 
   try {
-   if(ctx.message.text=="БАЛАНС" || ctx.message.text=="баланс")
-    ctx.reply(balance);
+   if(ctx.message.text=="БАЛАНС" || ctx.message.text=="баланс"){
+    
+        account
+  .read([AdAccount.Fields.name, AdAccount.Fields.age,AdAccount.Fields.balance,AdAccount.Fields.currency])
+  .then((account) => {
+    
+      balance = "Ваш баланс: " + (account.balance/100);
+       ctx.reply(balance)
+  })
+  .catch((error) => {
+        console.log(error)
+});
+     
+     
+     }
   } catch {
     ctx.reply('Помилка');
   }
