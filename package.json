@@ -1,0 +1,21 @@
+{
+  "name": "balance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "facebook-nodejs-business-sdk": "^8.0.0",
+    "telegraf": "^3.38.0"
+  }
+}
